@@ -1301,7 +1301,7 @@ abstract class WebTestBase extends TestBase {
     }
 
     if ($path instanceof Url) {
-      $path = $path->setAbsolute()->toString(TRUE)->getGeneratedUrl();
+      $path = $path->toString();
     }
 
     $verbose = 'GET request to: ' . $path .
@@ -2588,7 +2588,7 @@ abstract class WebTestBase extends TestBase {
       $url_options = $path->getOptions();
       $options = $url_options + $options;
       $path->setOptions($options);
-      return $path->setAbsolute()->toString(TRUE)->getGeneratedUrl();
+      return $path->setAbsolute()->toString();
     }
     // The URL generator service is not necessarily available yet; e.g., in
     // interactive installer tests.
